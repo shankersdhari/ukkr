@@ -62,7 +62,8 @@ body {
 .about-section a,
 .gallery-section .image-box h3,
 .gallery-section .image-box:before,
-.prospectus .files li a.btn {
+.prospectus .files li a.btn,
+.gallery .gallery-nav a {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -ms-transition: all 0.3s;
@@ -290,9 +291,6 @@ p {
   width: 200px;
   display: none;
 }
-.slide-area header .header-content .navbar .nav li ul.sub-menu li {
-  c: red;
-}
 .slide-area header .header-content .navbar .nav li ul.sub-menu li a {
   background: #12bcdb none repeat scroll 0 0;
   border-bottom: 1px solid #009cbb;
@@ -418,8 +416,8 @@ p {
   padding: 6px 0;
 }
 .notification-slider .item p {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
   margin: 0;
 }
 .notification-slider .item p small {
@@ -430,7 +428,7 @@ p {
   font-size: 11px;
   font-weight: 500;
   padding: 0 10px 2px;
-  transform: translate(7px, -8px);
+  transform: translate(7px, -6px);
 }
 .notification-slider .owl-nav {
   margin: 0;
@@ -440,13 +438,13 @@ p {
 .notification-slider .owl-nav .owl-next {
   background: #00a5c3 none repeat scroll 0 0;
   border-radius: 0;
-  font-size: 20px;
-  height: 42px;
+  font-size: 17px;
+  height: 38px;
   margin: 0 6px 0 0;
   overflow: hidden;
-  padding: 8px;
+  padding: 9px;
   text-align: center;
-  width: 42px;
+  width: 38px;
 }
 .notification-slider .owl-nav .owl-prev:hover,
 .notification-slider .owl-nav .owl-next:hover {
@@ -461,9 +459,6 @@ p {
 }
 .news-section .img-box img {
   width: 100%;
-}
-.news-section .content-box {
-  co: Re;
 }
 .news-section .content-box h2 {
   color: #00a5c3;
@@ -930,6 +925,25 @@ footer .copy a:hover {
 }
 .gallery .grid-item img {
   width: 100%;
+}
+.gallery .gallery-nav {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.gallery .gallery-nav a {
+  background: #dfdfdf none repeat scroll 0 0;
+  display: inline-block;
+  float: left;
+  font-weight: 500;
+  margin-bottom: 12px;
+  margin-right: 12px;
+  padding: 8px 23px;
+  text-transform: uppercase;
+}
+.gallery .gallery-nav a.active,
+.gallery .gallery-nav a:hover {
+  background-color: #028cbd;
+  color: #fff;
 }
 .admin-list {
   background: #f4f4f4 none repeat scroll 0 0;
