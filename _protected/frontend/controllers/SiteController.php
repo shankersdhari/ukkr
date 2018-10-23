@@ -70,6 +70,7 @@ class SiteController extends Controller
                     ],
                 ],
             ],
+
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
