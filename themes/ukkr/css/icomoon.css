@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?63617z');
+  src:  url('../fonts/icomoon.eot?63617z#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?63617z') format('truetype'),
+    url('../fonts/icomoon.woff?63617z') format('woff'),
+    url('../fonts/icomoon.svg?63617z#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-guidelines:before {
+  content: "\e900";
+}
+.icon-form:before {
+  content: "\e901";
+}
+.icon-freslip:before {
+  content: "\e902";
+}
+.icon-prospectus:before {
+  content: "\e903";
+}
+.icon-left-arrow:before {
+  content: "\e904";
+}
+.icon-phone:before {
+  content: "\e905";
+}
+.icon-calendar:before {
+  content: "\e906";
+}
+.icon-right-arrow:before {
+  content: "\e907";
+}
+.icon-search:before {
+  content: "\e908";
+}
+.icon-google-plus:before {
+  content: "\ea8b";
+}
+.icon-facebook:before {
+  content: "\ea90";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}
+.icon-youtube:before {
+  content: "\ea9d";
+}
+.icon-vimeo:before {
+  content: "\eaa0";
+}
+.icon-linkedin:before {
+  content: "\eaca";
+}
