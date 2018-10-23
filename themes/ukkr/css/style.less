@@ -172,8 +172,6 @@ p {
           }
         }
       }
-
-
       .navbar{
         border-color: #e1e1e1;
         border-radius: 0;
@@ -239,7 +237,6 @@ p {
               width: 200px;
               display: none;
               li{
-                c:red;
                 a{
                   background: #12bcdb none repeat scroll 0 0;
                   border-bottom: 1px solid #009cbb;
@@ -377,8 +374,8 @@ p {
     margin-bottom: 6px;
     padding: 6px 0;
     p{
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 500;
       margin: 0;
       small{
         background: red none repeat scroll 0 0;
@@ -388,7 +385,7 @@ p {
         font-size: 11px;
         font-weight: 500;
         padding: 0 10px 2px;
-        transform: translate(7px, -8px);
+        transform: translate(7px, -6px);
       }
     }
   }
@@ -398,13 +395,13 @@ p {
     .owl-prev,.owl-next{
       background: #00a5c3 none repeat scroll 0 0;
       border-radius: 0;
-      font-size: 20px;
-      height: 42px;
+      font-size: 17px;
+      height: 38px;
       margin: 0 6px 0 0;
       overflow: hidden;
-      padding: 8px;
+      padding: 9px;
       text-align: center;
-      width: 42px;
+      width: 38px;
       &:extend(.transition);
       &:hover{
         background-color: #0099B4;
@@ -422,7 +419,6 @@ p {
     }
   }
   .content-box{
-    co:Re;
     h2{
       color: #00a5c3;
       font-size: 41px;
@@ -496,7 +492,7 @@ p {
   text-transform: uppercase;
 }
 .about-section{
-  padding: 50px 0;
+ padding: 50px 0;
  h3{
    font-size: 24px;
    font-weight: 400;
@@ -915,6 +911,25 @@ footer{
     width: 100%;
     img{
       width: 100%;
+    }
+  }
+  .gallery-nav{
+    display: inline-block;
+    margin-bottom: 10px;
+    a{
+      background: #dfdfdf none repeat scroll 0 0;
+      display: inline-block;
+      float: left;
+      font-weight: 500;
+      margin-bottom: 12px;
+      margin-right: 12px;
+      padding: 8px 23px;
+      text-transform: uppercase;
+      &:extend(.transition);
+      &.active,&:hover{
+        background-color: #028cbd;
+        color:#fff;
+      }
     }
   }
 }
