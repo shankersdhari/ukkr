@@ -5,7 +5,6 @@ return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
 	'bootstrap' => [
 		'common\config\settings',
-		'devicedetect',
     ],	
     'components' => [
         'assetManager' => [
@@ -47,43 +46,11 @@ return [
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],
-        'eauth' => [
-            'class' => 'nodge\eauth\EAuth',
-            'popup' => true, // Use the popup window instead of redirecting.
-            'cache' => false, // Cache component name or false to disable cache. Defaults to 'cache' on production environments.
-            'cacheExpire' => 0, // Cache lifetime. Defaults to 0 - means unlimited.
-            //'httpClient' => [
-                // uncomment this to use streams in safe_mode
-                //'useStreamsFallback' => true,
-           // ],
-            'services' => [ // You can change the providers and their classes.
-               'google' => [
-                    // register your app here: https://code.google.com/apis/console/
-                    'class' => 'nodge\eauth\services\GoogleOAuth2Service',
-                    'clientId' => '824053223114-bnfqpb6tedoidgql2v5a8eh3k4cm6kut.apps.googleusercontent.com',
-                    'clientSecret' => 'ychMp44t0Qca2BsJURONYnhl',
-                    'title' => 'Drish Shoes',
-                ],
-                'facebook' => [
-                    // register your app here: https://developers.facebook.com/apps/
-                    'class' => 'nodge\eauth\services\FacebookOAuth2Service',
-                    'clientId' => '106275983158845', 
-                    'clientSecret' => '1d5afca5d0f1ad3541c1dd67e7c151c9', 
-                ],
-                 'instagram' => [
-                    // register your app here: https://instagram.com/developer/register/
-                    'class' => 'nodge\eauth\services\InstagramOAuth2Service',
-                    'clientId' => '6b4d622251a34d93bc86f5da941f0d32',
-                    'clientSecret' => '6b4d622251a34d93bc86f5da941f0d32',
-                ], 
-            ],
-        ],
+
         'log' => [
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
-                    'logFile' => '@app/runtime/logs/eauth.log',
-                    'categories' => ['nodge\eauth\*'],
                     'logVars' => [],
                 ],
 							 [
@@ -104,10 +71,7 @@ return [
                     'basePath' => '@common/translations',
                     'sourceLanguage' => 'en',
                 ],
-				'eauth' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@eauth/messages',
-                ],
+
                 'yii' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@common/translations',
@@ -116,9 +80,6 @@ return [
 				
             ],
         ],
-		'devicedetect' => [
-			'class' => 'alexandernst\devicedetect\DeviceDetect'
-		],
     ], // components
 	'modules' => [
 		'redactor' => [

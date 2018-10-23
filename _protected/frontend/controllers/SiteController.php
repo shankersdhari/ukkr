@@ -70,11 +70,6 @@ class SiteController extends Controller
                     ],
                 ],
             ],
-			'eauth' => [
-                        // required to disable csrf validation on OpenID requests
-                        'class' => \nodge\eauth\openid\ControllerBehavior::className(),
-                        'only' => ['login'],
-                    ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
