@@ -1,0 +1,7 @@
+backend/assets
+testing
+_protected/frontend/runtime
+_protected/common/config/main-local.php
+_protected/backend/runtime
+/deploy.sh
+/deploy-live.sh
