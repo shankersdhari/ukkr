@@ -5,9 +5,12 @@ namespace backend\controllers;
 use Yii;
 use common\models\Staff;
 use common\models\StaffSearch;
+use common\models\Departments;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
+use yii\web\Response;
 
 /**
  * StaffController implements the CRUD actions for Staff model.
@@ -64,14 +67,40 @@ class StaffController extends BackendController
     public function actionCreate()
     {
         $model = new Staff();
-
+        $departments = Departments::findAll(['deprt' => "Arts"]);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'departments' => ArrayHelper::map($departments,'id','name'),
             ]);
         }
+    }
+
+    public function actionActiveDepartments($id)
+    {
+        $model = Departments::findAll(['status' => 1, 'deprt' => $id]);
+        $staff = new Staff();
+        $sub_dprt = "";
+        $designation = "";
+        if($model){
+            foreach($model as $depts){
+                $sub_dprt .= "<option value='".$depts->id."'>".$depts->name."</option>";
+            }
+        }
+        if($id == "Student"){
+            $designation .= "<option value='Student'>Student</option>";
+        }else{
+            foreach($staff->designations as $key => $designations){
+                $designation .= "<option value='".$key."'>".$designations."</option>";
+            }
+        }
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        return [
+            'sub_department' => $sub_dprt,
+            'designation' => $designation,
+        ];
     }
 
     /**
@@ -83,12 +112,14 @@ class StaffController extends BackendController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $departments = Departments::findAll(['deprt' => $model->department]);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'departments' => ArrayHelper::map($departments,'id','name'),
             ]);
         }
     }

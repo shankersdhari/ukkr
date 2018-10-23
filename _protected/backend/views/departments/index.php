@@ -5,10 +5,13 @@ use yii\grid\GridView;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\LatestNewsSearch */
+/* @var $searchModel common\models\DepartmentsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = 'Latest News';
+if($id){
+    $this->title = 'Departments: '.$id;
+}else{
+    $this->title = 'Departments:';
+}
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="testimonial-index">
@@ -16,8 +19,15 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-md-12">
             <div class="box">
                 <div class="box-body table-responsive">
+
                     <p class="pull-right">
-                        <?= Html::a('Create Latest News', ['create'], ['class' => 'btn btn-success']) ?>
+                        <?php
+                        if($id){
+                            echo Html::a('Create Departments', ['create','id' => $id], ['class' => 'btn btn-success']);
+                        }else{
+                            echo Html::a('Create Departments', ['create'], ['class' => 'btn btn-success']);
+                        } ?>
+
                     </p>
                     <?php Pjax::begin(); ?>    <?= GridView::widget([
                         'dataProvider' => $dataProvider,
@@ -25,8 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'columns' => [
                             ['class' => 'yii\grid\SerialColumn'],
                             'name',
-                            'publish_date:date',
-                            'description',
+                            'deprt',
                             [
                                 'attribute' => 'status',
                                 'value' => function ($model) {
@@ -46,9 +55,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                 },
                                 'contentOptions' => ['style' => 'width:160px;text-align:center'],
                                 'format' => 'raw',
-                                'filter'=>array("1"=>"Active","0"=>"Inactive"),
+                                'filter' => array("1" => "Active", "0" => "Inactive"),
                             ],
-                            'created_at:date',
 
                             ['class' => 'yii\grid\ActionColumn'],
                         ],

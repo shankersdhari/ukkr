@@ -8,12 +8,7 @@ use kartik\file\FileInput;
 /* @var $this yii\web\View */
 /* @var $model common\models\Downloads */
 /* @var $form yii\widgets\ActiveForm */
-if($model->file != ''){
-    $image = Yii::$app->params['baseurl'] . '/uploads/download/'. $model->file;
-	
-}else{
-    $image = Yii::$app->params['baseurl'] . '/uploads/no-image.png';
-}
+$image = Yii::$app->params['baseurl'] . '/backend/uploads/file.png';
 
 ?>
 
@@ -35,6 +30,7 @@ if($model->file != ''){
 				],
 			]
 		]);
+		echo "<p>".$model->file."</p>";
 	?>
 
    

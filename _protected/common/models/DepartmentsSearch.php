@@ -5,12 +5,12 @@ namespace common\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Staff;
+use common\models\Departments;
 
 /**
- * StaffSearch represents the model behind the search form about `common\models\Staff`.
+ * DepartmentsSearch represents the model behind the search form about `common\models\Departments`.
  */
-class StaffSearch extends Staff
+class DepartmentsSearch extends Departments
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class StaffSearch extends Staff
     public function rules()
     {
         return [
-            [['id', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['email', 'contact', 'department', 'sub_department', 'name', 'designation'], 'safe'],
+            [['id', 'status'], 'integer'],
+            [['deprt', 'name'], 'safe'],
         ];
     }
 
@@ -39,10 +39,12 @@ class StaffSearch extends Staff
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params,$id=0)
     {
-        $query = Staff::find();
-
+        $query = Departments::find();
+        if($id){
+            $query->where(['deprt' => $id]);
+        }
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
@@ -60,19 +62,11 @@ class StaffSearch extends Staff
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'contact' => $this->contact,
-            'sub_department' => $this->sub_department,
-            'department' => $this->department,
             'status' => $this->status,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'sub_department', $this->sub_department])
-            ->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'department', $this->department])
-            ->andFilterWhere(['like', 'designation', $this->designation]);
+        $query->andFilterWhere(['like', 'deprt', $this->deprt])
+            ->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;
     }

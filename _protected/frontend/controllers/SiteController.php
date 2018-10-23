@@ -15,6 +15,7 @@ use common\models\GalleryMain;
 use common\models\LatestNews;
 use common\models\OurJournals;
 use common\models\Attributes;
+use common\models\Departments;
 use common\models\CourseCategory;
 use common\models\Courses;
 use frontend\models\AccountActivation;
@@ -550,13 +551,13 @@ class SiteController extends Controller
     public function actionStaff($department = 0){
         //$this->layout="page";
         if($department){
-            $staff = Staff::find()->where(['status' =>1 ,'department' => $department])->all();
+            $sub_department = Departments::find()->where(['status' =>1 ,'deprt' => $department])->all();
         }else{
-            $staff = Staff::find()->where(['status' =>1 ])->all();
+            $sub_department = Departments::find()->where(['status' =>1 ,'deprt' => "Staff"])->all();
         }
         return $this->render('staff', [
-            'model' => $staff,
             'department' => $department,
+            'sub_department' => $sub_department,
         ]);
 
     }
@@ -565,6 +566,14 @@ class SiteController extends Controller
         $courses_category = CourseCategory::find()->where(['status' =>1 ])->all();
         return $this->render('courses', [
             'courses_category' => $courses_category,
+        ]);
+
+    }
+    public function actionDownloads(){
+        //$this->layout="page";
+        $downloads = Downloads::find()->where(['status' =>1 ])->all();
+        return $this->render('downloads', [
+            'downloads' => $downloads,
         ]);
 
     }

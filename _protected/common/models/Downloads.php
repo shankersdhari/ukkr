@@ -25,7 +25,7 @@ class Downloads extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'downloads';
+        return 'documents';
     }
 
     /**

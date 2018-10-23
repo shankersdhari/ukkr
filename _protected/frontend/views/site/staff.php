@@ -40,22 +40,37 @@
             </div>
         <?php } ?>
         <div class="row">
-            <?php if($model) {
-                foreach ($model as $member) { ?>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="image-box">
-                                <img src="<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/staff/img.jpg" alt="">
-                            </div>
-                            <div class="content-box">
-                                <h5><?= $member->name ?></h5>
-                                <p><?= $member->designation ?></p>
-                                <span class="email">Email: <?= $member->email ?></span>
-                                <span class="contact">Contact: <?= $member->contact ?></span>
-                            </div>
+            <?php if($sub_department) {
+                foreach ($sub_department as $sub_depart) { ?>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4><?= $sub_depart->name ?></h4>
                         </div>
                     </div>
-                <?php }
+                    <?php if($sub_depart->members) {
+                        foreach ($sub_depart->members as $member) { ?>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="item">
+                                    <div class="image-box">
+                                        <img src="<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/staff/img.jpg" alt="">
+                                    </div>
+                                    <div class="content-box">
+                                        <h5><?= $member->name ?></h5>
+                                        <p>
+                                            <?php if($member->st_designation != ""){
+                                                echo $sub_depart->name.": ".$member->st_designation;
+                                            }else{
+                                                echo $member->designation;
+                                            } ?>
+                                        </p>
+                                        <span class="email">Email: <?= $member->email ?></span>
+                                        <span class="contact">Contact: <?= $member->contact ?></span>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php }
+                    }
+                }
             }?>
         </div>
     </div>

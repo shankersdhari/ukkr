@@ -34,13 +34,19 @@ class Staff extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['email', 'name', 'designation', 'contact'], 'required'],
-            [[ 'status', 'created_at', 'updated_at'], 'integer'],
-            [['email', 'name', 'department','contact', 'designation'], 'string', 'max' => 250],
+            [['email', 'name', 'contact'], 'required'],
+            [[ 'status', 'created_at','sub_department', 'updated_at'], 'integer'],
+            [['email', 'name', 'department','contact','st_designation', 'designation'], 'string', 'max' => 250],
             [['email'], 'unique'],
         ];
     }
-
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDepartmentName()
+    {
+        return $this->hasOne(Departments::className(), ['id' => 'sub_department']);
+    }
     /**
      * @inheritdoc
      */
@@ -51,6 +57,8 @@ class Staff extends \yii\db\ActiveRecord
             'email' => 'Email',
             'name' => 'Name',
             'designation' => 'Designation',
+            'st_designation' => 'Facility/Designation',
+            'sub_department' => 'Sub Department',
             'contact' => 'Contact',
             'status' => 'Status',
             'department' => 'Department',
@@ -91,11 +99,26 @@ class Staff extends \yii\db\ActiveRecord
             "Office Clerk" => "Office Clerk",
         );
     }
+    public function getStudentDesignations(){
+       return  array(
+            "Library" => "Library",
+            "Hostel Boys" => "Hostel Boys",
+            "Hostel Girls" => "Hostel Girls",
+            "Swimmming Pool" => "Swimmming Pool",
+            "Auditorium" => "Auditorium",
+            "Health Center" => "Health Center",
+            "Market" => "Market",
+            "Rose Garden" => "Rose Garden",
+            "Bank" => "Bank",
+        );
+    }
     public function getDepartments(){
         return  array(
             "Arts" => "Arts",
             "Commerce" => "Commerce",
             "Science" => "Science",
+            "Staff" => "Staff",
+            "Student" => "Student",
         );
     }
 }

@@ -50,7 +50,7 @@ use yii\helpers\Url;
 							<li><a href="<?= Url::to(['site/page','slug' =>"about-us"]) ?>">About</a></li>
 							<li><a href="<?= Url::to(['site/staff']) ?>">Staff</a></li>
 							<li><a href="<?= Url::to(['site/courses']) ?>">Courses</a></li>
-							<li><a href="prospectus.html">Prospectus</a></li>
+							<li><a href="<?= Url::to(['site/downloads']) ?>">Prospectus</a></li>
 							<li>
 								<a href="javacript:void(0)">Departments</a>
 								<ul class="sub-menu">
@@ -65,7 +65,7 @@ use yii\helpers\Url;
 									</li>
 								</ul>
 							</li>
-							<li><a href="students-corner.html">Student Corner</a></li>
+							<li><a href="<?= Url::to(['site/staff','department' => 'Student']) ?>">Student Corner</a></li>
 							<li><a href="gallery.html">Gallery</a></li>
 							<li><a href="admission-lists.html">Admission Lists</a></li>
 							<li><a href="pride-and-glory.html">Pride</a></li>

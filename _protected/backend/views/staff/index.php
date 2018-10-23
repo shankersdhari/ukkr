@@ -8,7 +8,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel common\models\StaffSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Staff';
+$this->title = 'Member';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pages-index">
@@ -29,6 +29,18 @@ $this->params['breadcrumbs'][] = $this->title;
                             'email:email',
                             'name',
                             'department',
+                            [
+                                'attribute' => 'departmentName',
+                                'label' => 'Sub Department',
+                                'value' => function ($model) {
+                                    if($model->departmentName){
+                                        return $model->departmentName->name;
+                                    }else{
+
+                                        return "-";
+                                    }
+                                }
+                            ],
                             'designation',
                             'contact',
                             [

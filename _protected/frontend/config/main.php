@@ -40,6 +40,7 @@ return [
 				'/committees.html' => '/site/committees',	
 				'/gallery.html' => '/site/gallery',	
 				'/staff.html' => '/site/staff',
+				'/downloads.html' => '/site/downloads',
 				'/courses.html' => '/site/courses',
                 '/search'=>'/finder/product-search',
                 '/<slug:.*?>.html'=>'/site/page',

@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\LatestNews;
-use common\models\LatestNewsSearch;
+use common\models\Departments;
+use common\models\DepartmentsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * LatestNewsController implements the CRUD actions for LatestNews model.
+ * DepartmentsController implements the CRUD actions for Departments model.
  */
-class LatestNewsController extends BackendController
+class DepartmentsController extends BackendController
 {
     /**
      * @inheritdoc
@@ -30,22 +30,23 @@ class LatestNewsController extends BackendController
     }
 
     /**
-     * Lists all LatestNews models.
+     * Lists all Departments models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($id=0)
     {
-        $searchModel = new LatestNewsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $searchModel = new DepartmentsSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams,$id);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'id' => $id,
         ]);
     }
 
     /**
-     * Displays a single LatestNews model.
+     * Displays a single Departments model.
      * @param integer $id
      * @return mixed
      */
@@ -57,20 +58,18 @@ class LatestNewsController extends BackendController
     }
 
     /**
-     * Creates a new LatestNews model.
+     * Creates a new Departments model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($id = 0)
     {
-        $model = new LatestNews();
-
-        if ($model->load(Yii::$app->request->post())) {
-            $model->publish_date = strtotime($model->publish_date);
-            if(!$model->save()){
-                echo"<pre>";print_r($model->getErrors());die;
-            }
-            return $this->redirect(['index']);
+        $model = new Departments();
+        if($id){
+            $model->deprt = $id;
+        }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['index', 'id' => $model->deprt]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -79,7 +78,7 @@ class LatestNewsController extends BackendController
     }
 
     /**
-     * Updates an existing LatestNews model.
+     * Updates an existing Departments model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -88,12 +87,8 @@ class LatestNewsController extends BackendController
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->publish_date = strtotime($model->publish_date);
-            if(!$model->save()){
-                echo"<pre>";print_r($model->getErrors());die;
-            }
-            return $this->redirect(['index']);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['index', 'id' => $model->deprt]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -102,7 +97,7 @@ class LatestNewsController extends BackendController
     }
 
     /**
-     * Deletes an existing LatestNews model.
+     * Deletes an existing Departments model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -115,15 +110,15 @@ class LatestNewsController extends BackendController
     }
 
     /**
-     * Finds the LatestNews model based on its primary key value.
+     * Finds the Departments model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return LatestNews the loaded model
+     * @return Departments the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = LatestNews::findOne($id)) !== null) {
+        if (($model = Departments::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

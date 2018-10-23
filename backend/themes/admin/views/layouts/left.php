@@ -44,25 +44,6 @@
                         ],
                     ],
 					[
-                        'label' => 'Membership Management',
-                        'icon' => 'fa fa-bars',
-                        'url' => '#',
-                        'items' => [
-                            ['label' => 'All Membership', 'icon' => 'fa fa-file-image-o ', 'url' => ['/membership'],],
-                            ['label' => 'Add New Membership', 'icon' => 'fa fa-plus', 'url' => ['/membership/create'],],
-                        ],
-                    ],
-					[
-                        'label' => 'Confrence Management',
-                        'icon' => 'fa fa-bars',
-                        'url' => '#',
-                        'items' => [
-                            ['label' => 'Recent Confrences', 'icon' => 'fa fa-file-image-o ', 'url' => ['/recent-confrence'],],
-                            ['label' => 'Upcomin Confrences', 'icon' => 'fa fa-file-image-o', 'url' => ['/upcoming-confrence'],],
-							['label' => 'Our Journals', 'icon' => 'fa fa-file-image-o', 'url' => ['/our-journals'],],
-                        ],
-                    ],
-					[
                         'label' => 'Gallery Management',
                         'icon' => 'fa fa-picture-o',
                         'url' => '#',
@@ -70,6 +51,23 @@
                             ['label' => 'All Gallery', 'icon' => 'fa fa-file-image-o ', 'url' => ['/gallery-main'],],
                             ['label' => 'Add New Gallery', 'icon' => 'fa fa-file-image-o', 'url' => ['/gallery-main/create'],],
                         ],
+                    ],
+                    [
+                        'label' => 'Department Management',
+                        'icon' => 'fa fa-picture-o',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Staff', 'icon' => 'fa fa-file-image-o ', 'url' => ['/departments','id' => "Staff"],],
+                            ['label' => 'Arts', 'icon' => 'fa fa-file-image-o', 'url' => ['/departments','id' => "Arts"],],
+                            ['label' => 'Commerce', 'icon' => 'fa fa-file-image-o', 'url' => ['/departments','id' => "Commerce"],],
+                            ['label' => 'Science', 'icon' => 'fa fa-file-image-o', 'url' => ['/departments','id' => "Science"],],
+                            ['label' => 'Student', 'icon' => 'fa fa-file-image-o', 'url' => ['/departments','id' => "Student"],],
+                        ],
+                    ],
+                    [
+                        'label' => 'Members Management',
+                        'icon' => 'fa fa-picture-o',
+                        'url' => ['/staff'],
                     ],
                     [
                         'label' => 'Course Management',
@@ -82,9 +80,9 @@
                         'url' => ['/latest-news'],
                     ],
                     [
-                        'label' => 'Staff Management',
+                        'label' => 'Documents Management',
                         'icon' => 'fa fa-picture-o',
-                        'url' => ['/staff'],
+                        'url' => ['/downloads'],
                     ],
 
                     /* [
