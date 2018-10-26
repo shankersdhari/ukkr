@@ -40,12 +40,14 @@
             </div>
         <?php } ?>
         <div class="row">
-            <?php if($sub_department) {
+            <?php
+//            if($department == 0){
+//                echo '<div class="col-md-12"><h3>Staff</h3></div>';
+//            }
+            if($sub_department) {
                 foreach ($sub_department as $sub_depart) { ?>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4><?= $sub_depart->name ?></h4>
-                        </div>
+                    <div class="col-md-12">
+                        <h4><?= $sub_depart->name ?></h4>
                     </div>
                     <?php if($sub_depart->members) {
                         foreach ($sub_depart->members as $member) {
@@ -62,18 +64,27 @@
                                     <div class="content-box">
                                         <h5><?= $member->name ?></h5>
                                         <p>
-                                            <?php if($member->st_designation != ""){
-                                                echo $sub_depart->name.": ".$member->st_designation;
+                                            <?php
+                                            if($member->st_designation != ""){
+                                                if($member->st_designation != "") {
+                                                    echo $sub_depart->name . ": " . $member->st_designation;
+                                                }
                                             }else{
-                                                echo $member->designation;
+                                                if($member->designation != "") {
+                                                    echo $member->designation;
+                                                }
                                             } ?>
                                         </p>
+                                        <?php if($member->email != ""){ ?>
                                         <span class="email">Email: <?= $member->email ?></span>
+                                        <?php } if($member->contact != ""){ ?>
                                         <span class="contact">Contact: <?= $member->contact ?></span>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
-                        <?php }
+                            <?php
+                        }
                     }
                 }
             }?>

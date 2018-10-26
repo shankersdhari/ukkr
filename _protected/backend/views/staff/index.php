@@ -48,8 +48,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'format' => 'html',
                                 'enableSorting' => false,
                                 'value' => function ($model) {
-                                    return Html::img( Yii::$app->params['baseurl'] . '/uploads/member/thumbs/' . $model->image,
-                                        ['width' => '80px']);
+                                    if($model->image != "") {
+                                        return Html::img(Yii::$app->params['baseurl'] . '/uploads/member/thumbs/' . $model->image,
+                                            ['width' => '80px']);
+                                    }else{
+                                        return Html::img( Yii::$app->params['baseurl'] . '/uploads/user.jpg',
+                                            ['width' => '80px']);
+                                    }
                                 },
                                 'contentOptions' => ['style' => 'width:260px;text-align:center;vertical-align: middle;'],
                             ],

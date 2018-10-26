@@ -5,26 +5,19 @@ use yii\helpers\Url;
 use frontend\widgets\Gallerywid;
 use frontend\widgets\Alert;
 ?>
- <header class="sub-page-head">
-	<div class="container-fluid">
-		<div class="intro-text">
-			<h3><!--?= $model->name ?--></h3>
-		</div>
-	</div>
-</header>
 <!-- About Section -->
-<section id="gallery">
+<!--<section id="gallery">
 	<div class="container">
 	<div class="row">
 		<div class="col-lg-12 text-center">
-			<?= Alert::widget() ?>
-			<?= Gallerywid::widget(['show'=>0]) ?> 
+			<?/*= Alert::widget() */?>
+			<?/*= Gallerywid::widget(['show'=>0]) */?>
 		</div>
 	</div>
 	</div>
-</section>
+</section>-->
 
-<div class="inner-header" style="background-image: url('images/about-header.jpg')">
+<div class="inner-header" style="background-image: url('<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/about-header.jpg')">
 	<div class="container">
 		<h2>Gallery</h2>
 		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
