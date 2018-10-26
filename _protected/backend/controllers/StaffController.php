@@ -11,12 +11,18 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\web\Response;
+use yii\imagine\Image;
+use kartik\file\FileInput;
+use yii\web\UploadedFile;
+use common\traits\ImageUploadTrait;
 
 /**
  * StaffController implements the CRUD actions for Staff model.
  */
 class StaffController extends BackendController
 {
+    use ImageUploadTrait;
+    public $enableCsrfValidation = false;
     /**
      * @inheritdoc
      */
@@ -68,7 +74,20 @@ class StaffController extends BackendController
     {
         $model = new Staff();
         $departments = Departments::findAll(['deprt' => "Arts"]);
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $image = UploadedFile::getInstance($model, 'image');
+        if ($model->load(Yii::$app->request->post())) {
+            if($image != '')
+            {
+                $newname = time();
+                $name = str_replace(' ','-',strtolower($newname));
+                $size = Yii::$app->params['folders']['size'];
+                $main_folder = "member
+                ";
+                $image_name= $this->uploadImage($image,$name,$main_folder,$size);
+                $model->image = $image_name;
+
+            }
+            $model->save();
             return $this->redirect(['index']);
         } else {
             return $this->render('create', [
@@ -113,8 +132,23 @@ class StaffController extends BackendController
     {
         $model = $this->findModel($id);
         $departments = Departments::findAll(['deprt' => $model->department]);
+        $image_path = $model->image;
+        $image = UploadedFile::getInstance($model, 'image');
+        if ($model->load(Yii::$app->request->post())) {
+            if($image != '')
+            {
+                $newname =$image->name;
+                $name = str_replace(' ','-',strtolower($newname));
+                $size = Yii::$app->params['folders']['size'];
+                $main_folder = "member";
+                $image_name= $this->uploadImage($image,$name,$main_folder,$size);
+                $model->image = $image_name;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            }else
+            {
+                $model->image = $image_path;
+            }
+            $model->save();
             return $this->redirect(['index']);
         } else {
             return $this->render('update', [

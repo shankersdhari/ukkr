@@ -640,9 +640,21 @@ class SiteController extends Controller
      *
      * @return string
      */ 
-    public function actionGallery()
+    public function actionGallery($gallery=0)
     {
-        return $this->render('gallery');
+        //$this->layout="page";
+        if($gallery){
+            $model = GalleryMain::find()->where(['status' =>1 ,'id' => $gallery])->all();
+            $images = Gallery::find()->where(['status' =>1 ,'id' => $gallery])->all();
+        }else{
+            $model = GalleryMain::find()->where(['status' =>1])->all();
+            $images = Gallery::find()->where(['status' =>1])->all();
+        }
+        return $this->render('gallery', [
+            'gallery' => $gallery,
+            'images' => $images,
+            'model' => $model,
+        ]);
     }	
 		
 }

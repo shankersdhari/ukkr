@@ -36,7 +36,7 @@ class Staff extends \yii\db\ActiveRecord
         return [
             [['email', 'name', 'contact'], 'required'],
             [[ 'status', 'created_at','sub_department', 'updated_at'], 'integer'],
-            [['email', 'name', 'department','contact','st_designation', 'designation'], 'string', 'max' => 250],
+            [['email','image', 'name', 'department','contact','st_designation', 'designation'], 'string', 'max' => 250],
             [['email'], 'unique'],
         ];
     }
@@ -56,6 +56,7 @@ class Staff extends \yii\db\ActiveRecord
             'id' => 'ID',
             'email' => 'Email',
             'name' => 'Name',
+            'image' => 'Image',
             'designation' => 'Designation',
             'st_designation' => 'Facility/Designation',
             'sub_department' => 'Sub Department',

@@ -48,11 +48,16 @@
                         </div>
                     </div>
                     <?php if($sub_depart->members) {
-                        foreach ($sub_depart->members as $member) { ?>
+                        foreach ($sub_depart->members as $member) {
+                            if($member->image != ""){
+                                $image = Yii::$app->params['baseurl'] . '/uploads/member/thumbs/'. $model->image;
+                            }else{
+                                $image = Yii::$app->params['baseurl'] ."/themes/ukkr/images/staff/img.jpg";
+                            }?>
                             <div class="col-lg-4 col-md-6">
                                 <div class="item">
                                     <div class="image-box">
-                                        <img src="<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/staff/img.jpg" alt="">
+                                        <img src="<?=  $image ?>" alt="">
                                     </div>
                                     <div class="content-box">
                                         <h5><?= $member->name ?></h5>

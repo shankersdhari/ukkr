@@ -66,7 +66,7 @@ use yii\helpers\Url;
 								</ul>
 							</li>
 							<li><a href="<?= Url::to(['site/staff','department' => 'Student']) ?>">Student Corner</a></li>
-							<li><a href="gallery.html">Gallery</a></li>
+							<li><a href="<?= Url::to(['site/gallery']) ?>">Gallery</a></li>
 							<li><a href="admission-lists.html">Admission Lists</a></li>
 							<li><a href="pride-and-glory.html">Pride</a></li>
 						</ul>
