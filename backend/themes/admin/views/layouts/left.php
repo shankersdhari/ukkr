@@ -75,6 +75,11 @@
                         'url' => ['/course-category'],
                     ],
                     [
+                        'label' => 'Notice Management',
+                        'icon' => 'fa fa-picture-o',
+                        'url' => ['/noticed'],
+                    ],
+                    [
                         'label' => 'News Management',
                         'icon' => 'fa fa-picture-o',
                         'url' => ['/latest-news'],

@@ -44,6 +44,16 @@ $this->params['breadcrumbs'][] = $this->title;
                             'designation',
                             'contact',
                             [
+                                'attribute' => 'image',
+                                'format' => 'html',
+                                'enableSorting' => false,
+                                'value' => function ($model) {
+                                    return Html::img( Yii::$app->params['baseurl'] . '/uploads/member/thumbs/' . $model->image,
+                                        ['width' => '80px']);
+                                },
+                                'contentOptions' => ['style' => 'width:260px;text-align:center;vertical-align: middle;'],
+                            ],
+                            [
                                 'attribute' => 'status',
                                 'value' => function ($model) {
                                     if ($model->status) {
