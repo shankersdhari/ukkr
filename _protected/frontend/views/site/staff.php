@@ -50,7 +50,7 @@
                     <?php if($sub_depart->members) {
                         foreach ($sub_depart->members as $member) {
                             if($member->image != ""){
-                                $image = Yii::$app->params['baseurl'] . '/uploads/member/thumbs/'. $model->image;
+                                $image = Yii::$app->params['baseurl'] . '/uploads/member/thumbs/'. $member->image;
                             }else{
                                 $image = Yii::$app->params['baseurl'] ."/themes/ukkr/images/staff/img.jpg";
                             }?>

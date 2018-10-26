@@ -3,6 +3,9 @@
 namespace common\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "noticed".
@@ -30,12 +33,22 @@ class Noticed extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['content', 'start_date', 'end_date', 'created_at'], 'required'],
-            [['start_date', 'end_date', 'status', 'created_at'], 'integer'],
+            [['content', 'start_date', 'end_date'], 'required'],
+            [['start_date', 'end_date', 'status', 'created_at'], 'safe'],
             [['content'], 'string', 'max' => 1000],
         ];
     }
-
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at'],
+                ],
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */

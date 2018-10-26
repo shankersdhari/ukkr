@@ -5,6 +5,7 @@
 use yii\helpers\Url;
 use yii\helpers\Html;
 use frontend\widgets\News;
+use frontend\widgets\Notices;
 use frontend\widgets\SliderWid;
 $meta_desc = Yii::$app->params['settings']['site_meta_description'];
 $meta_title = Yii::$app->params['settings']['site_meta_title'];
@@ -38,22 +39,7 @@ $this->registerMetaTag([
 				?>
 
 <?= SliderWid::widget() ?>
-<div class="container">
-    <div class="notification-slider owl-carousel owl-theme">
-        <div class="item">
-            <p>Computer department ranked number 1 in haryana, number 4 in India by india today magazine 2017 Computer department ranked number 1 in haryana, number 4 in India by india today magazine 2017 Computer department ranked number 1 in haryana, number 4 in India by india today magazine 2017<small>new</small></p>
-        </div>
-        <div class="item">
-            <p>Computer department ranked number 1 in haryana, number 4 in India by india today magazine 2017<small>new</small></p>
-        </div>
-        <div class="item">
-            <p>Computer department ranked number 1 in haryana, number 4 in India by india today magazine 2017 Computer department ranked number 1 in haryana, number 4 in India by india today magazine 2017<small>new</small></p>
-        </div>
-        <div class="item">
-            <p>Computer department ranked number 1 in haryana, number 4 in India by india today magazine 2017<small>new</small></p>
-        </div>
-    </div>
-</div>
+<?= Notices::widget() ?>
 <div class="news-section">
     <div class="container">
         <div class="row">
@@ -72,7 +58,6 @@ $this->registerMetaTag([
         </div>
     </div>
 </div>
-
 <div class="about-section">
     <div class="container">
         <div class="row">

@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * NoticedController implements the CRUD actions for Noticed model.
  */
-class NoticedController extends Controller
+class NoticedController extends BackendController
 {
     /**
      * @inheritdoc
@@ -65,8 +65,11 @@ class NoticedController extends Controller
     {
         $model = new Noticed();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) ) {
+            $model->start_date = strtotime($model->start_date);
+            $model->end_date = strtotime($model->end_date);
+            $model->save();
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -84,8 +87,11 @@ class NoticedController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->start_date = strtotime($model->start_date);
+            $model->end_date = strtotime($model->end_date);
+            $model->save();
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,
