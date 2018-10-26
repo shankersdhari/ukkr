@@ -11,7 +11,8 @@ $meta_desc = Yii::$app->params['settings']['site_meta_description'];
 $meta_title = Yii::$app->params['settings']['site_meta_title'];
 $meta_keywords = Yii::$app->params['settings']['site_meta_keyword'];
 
-$this->title = (isset($meta_title) && $meta_title != "") ? $meta_title : 'Scesm';
+$this->title = (isset($meta_title) && $meta_title != "") ? $meta_title : '
+';
 
 $this->registerMetaTag([
     'name' => 'description',
