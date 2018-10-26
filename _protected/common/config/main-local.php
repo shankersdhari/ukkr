@@ -8,6 +8,8 @@ return [
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',
+
+            //onlinepass - x5-E!{h#k#9U
 			  
 			
 /* 		'enableSchemaCache' => true,
