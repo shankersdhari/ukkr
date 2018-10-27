@@ -43,7 +43,7 @@ $this->registerCssFile(Yii::$app->view->theme->baseUrl . '/css/magnific-popup.cs
 					<div class="col-md-3">
 						<div class="grid-item">
 							<a href="<?= Yii::$app->params['baseurl'] ?>/uploads/gallery/main/<?= $image->image ?>" title="<?= $image->title ?>">
-								<img src="<?= Yii::$app->params['baseurl'] ?>/uploads/gallery/thumbs/<?= $image->image ?>" alt="<?= $image->title ?>">
+								<img src="<?= Yii::$app->params['baseurl'] ?>/uploads/gallery/medium/<?= $image->image ?>" alt="<?= $image->title ?>">
 							</a>
 						</div>
 					</div>
