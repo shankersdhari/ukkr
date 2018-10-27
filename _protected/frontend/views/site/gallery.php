@@ -11,22 +11,10 @@ $this->registerCssFile(Yii::$app->view->theme->baseUrl . '/css/magnific-popup.cs
 
 
 ?>
-<!-- About Section -->
-<!--<section id="gallery">
-	<div class="container">
-	<div class="row">
-		<div class="col-lg-12 text-center">
-			<?/*= Alert::widget() */?>
-			<?/*= Gallerywid::widget(['show'=>0]) */?>
-		</div>
-	</div>
-	</div>
-</section>-->
 
 <div class="inner-header" style="background-image: url('<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/about-header.jpg')">
 	<div class="container">
 		<h2>Gallery</h2>
-		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 	</div>
 </div>
 <div class="gallery">
@@ -54,8 +42,8 @@ $this->registerCssFile(Yii::$app->view->theme->baseUrl . '/css/magnific-popup.cs
 				foreach ($images as $image) { ?>
 					<div class="col-md-3">
 						<div class="grid-item">
-							<a href="<?= Yii::$app->params['baseurl'] ?> /uploads/gallery/main/<?= $image->image ?>" title="<?= $image->title ?>">
-								<img src="<?= Yii::$app->params['baseurl'] ?> /uploads/gallery/thumbs/<?= $image->image ?>" alt="<?= $image->title ?>">
+							<a href="<?= Yii::$app->params['baseurl'] ?>/uploads/gallery/main/<?= $image->image ?>" title="<?= $image->title ?>">
+								<img src="<?= Yii::$app->params['baseurl'] ?>/uploads/gallery/thumbs/<?= $image->image ?>" alt="<?= $image->title ?>">
 							</a>
 						</div>
 					</div>
