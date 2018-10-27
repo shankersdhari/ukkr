@@ -926,6 +926,8 @@ footer .copy a:hover {
   width: 100%;
 }
 .gallery .grid-item img {
+  height: 240px;
+  object-fit: cover;
   width: 100%;
 }
 .gallery .gallery-nav {

@@ -4,6 +4,12 @@ $this->title = 'Gallery';
 use yii\helpers\Url;
 use frontend\widgets\Gallerywid;
 use frontend\widgets\Alert;
+
+
+$this->registerJsFile(Yii::$app->view->theme->baseUrl . '/js/jquery.magnific-popup.min.js', ['depends' => [yii\web\YiiAsset::className()]]);
+$this->registerCssFile(Yii::$app->view->theme->baseUrl . '/css/magnific-popup.css', ['depends' => [\frontend\assets\AppAsset::className()]]);
+
+
 ?>
 <!-- About Section -->
 <!--<section id="gallery">
@@ -34,10 +40,10 @@ use frontend\widgets\Alert;
 		<div class="row">
 			<div class="col-md-12">
 				<div class="gallery-nav">
-					<a href="#" class="active">All</a>
+					<a href="<?= Url::to(["site/gallery"]); ?>" <?php if($cat_id == 0) { ?> class="active"<?php } ?>>All</a>
 					<?php if($model) {
 						foreach ($model as $gal) { ?>
-							<a href="<?= Url::to(["site/gallery",'id' => $gal->id ]); ?>"><?= $gal->galley_name ?></a>
+							<a <?php if($cat_id == $gal->id ) { ?> class="active"<?php } ?> href="<?= Url::to(["site/gallery",'cat_id' => $gal->id ]); ?>"><?= $gal->galley_name ?></a>
 						<?php }
 					} ?>
 				</div>
@@ -48,8 +54,8 @@ use frontend\widgets\Alert;
 				foreach ($images as $image) { ?>
 					<div class="col-md-3">
 						<div class="grid-item">
-							<a href="<?= Yii::$app->params['baseurl'] ?> /uploads/gallery/main/<?= $model->image ?>" title="<?= $model->title ?>">
-								<img src="<?= Yii::$app->params['baseurl'] ?> /uploads/gallery/thumbs/<?= $model->image ?>" alt="<?= $model->title ?>">
+							<a href="<?= Yii::$app->params['baseurl'] ?> /uploads/gallery/main/<?= $image->image ?>" title="<?= $image->title ?>">
+								<img src="<?= Yii::$app->params['baseurl'] ?> /uploads/gallery/thumbs/<?= $image->image ?>" alt="<?= $image->title ?>">
 							</a>
 						</div>
 					</div>

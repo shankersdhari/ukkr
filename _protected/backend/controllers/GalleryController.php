@@ -99,6 +99,7 @@ class GalleryController extends BackendController
         $model = new Gallery();
 		$image = UploadedFile::getInstance($model, 'image');
         if ($model->load(Yii::$app->request->post())) {
+            $model->gallery_id = $gallery_id;
 			if($image != '')
 			{
 					$newname = time();
