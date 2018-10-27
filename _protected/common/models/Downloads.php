@@ -34,7 +34,7 @@ class Downloads extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'file'], 'required'],
+            [['name'], 'required'],
             [['status', 'created_at', 'updated_at'], 'integer'],
 			[['file'], 'file', 'extensions' => ['png','jpg','jpeg','gif','xls','csv','pdf','doc','txt']],
             [['name'], 'string', 'max' => 255],
