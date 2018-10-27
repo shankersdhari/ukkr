@@ -34,10 +34,9 @@ class Staff extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['email', 'name', 'contact'], 'required'],
+            [['name'], 'required'],
             [[ 'status', 'created_at','sub_department', 'updated_at'], 'integer'],
             [['email','image', 'name', 'department','contact','st_designation', 'designation'], 'string', 'max' => 250],
-            [['email'], 'unique'],
         ];
     }
     /**
@@ -98,6 +97,12 @@ class Staff extends \yii\db\ActiveRecord
             "NCC incharge [Girls]" => "NCC incharge [Girls]",
             "Press Release" => "Press Release",
             "Office Clerk" => "Office Clerk",
+            "HOD, Associate Professor" => "HOD, Associate Professor",
+            "Retd, Associate Professor" => "Retd, Associate Professor",
+            "HOD, Assistant Professor" => "HOD, Assistant Professor",
+            "Associate Prof" => "Associate Prof",
+            "Assistant Prof" => "Assistant Prof",
+            "On Leave, Associate Professor" => "On Leave, Associate Professor",
         );
     }
     public function getStudentDesignations(){
