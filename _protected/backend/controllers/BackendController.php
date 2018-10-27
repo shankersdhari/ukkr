@@ -77,7 +77,7 @@ class BackendController extends Controller
                    
                     [
                         'controllers' => ['setting-attributes'],
-                        'actions' => ['index','update-any-status', 'create','upload','update','web-set','viewattribute','view'],
+                        'actions' => ['index','update-any-status', 'create', 'delete','upload','update','web-set','viewattribute','view'],
                         'allow' => true,
                         'roles' => ['admin','theCreator'],
                     ],					
@@ -89,14 +89,15 @@ class BackendController extends Controller
                     ],						
 					
                 ], // rules
-				
-				'denyCallback' => function ($rule, $action) {
-					if(Yii::$app->user->isGuest){	
+
+				/*'denyCallback' => function ($rule, $action) {
+					if(Yii::$app->user->isGuest){
 						return $this->redirect(['site/login']); 
-					}else{						
-						return $this->redirect(Yii::$app->params['baseurl']);
+					}else{
+
+						return $this->redirect(['site/index']);
 					}
-				},
+				},*/
       				
 
             ], // access

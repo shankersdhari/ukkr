@@ -20,6 +20,7 @@ use yii\web\UploadedFile;
  */
 class SettingAttributesController extends BackendController
 {
+	public $enableCsrfValidation = false;
 	use ImageUploadTrait;
     /**
      * Lists all SettingAttributes models.
@@ -307,6 +308,7 @@ class SettingAttributesController extends BackendController
      */
     public function actionDelete($id)
     {
+
 		$mod = $this->findModel($id);
 		 if($mod->input_type==1 || $mod->input_type == 2){
 			SettingTextValues::findOne(['setting_attribute_id'=>$id,'setting_id'=>$mod->setting_id])->delete();
