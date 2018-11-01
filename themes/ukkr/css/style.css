@@ -278,7 +278,8 @@ p {
   padding: 13px 16px;
   text-transform: uppercase;
 }
-.slide-area header .header-content .navbar .nav li:hover a {
+.slide-area header .header-content .navbar .nav li:hover a,
+.slide-area header .header-content .navbar .nav li.active a {
   background: #06A7C6;
   color: #fff;
 }
@@ -738,7 +739,7 @@ footer .copy a:hover {
   color: #009BB7;
 }
 .inner-header {
-  background: #dfdfdf none no-repeat scroll center center / cover;
+  background: #dfdfdf none no-repeat scroll center -24px / cover;
   margin-top: 125px;
   padding: 60px 0;
   text-align: center;

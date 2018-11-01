@@ -27,9 +27,9 @@ $this->registerMetaTag([
 
 ?>
 
-				<?php 
-					/*if($gallery){
-						foreach($gallery as $image){ */?><!--
+<?php
+/*if($gallery){
+    foreach($gallery as $image){ */?><!--
 						<div class="item">
 							<img src="<?/*= Yii::$app->params['baseurl'] */?>/uploads/gallery/main/<?/*= $image->image */?>">
 							<h4><?/*= $image->title */?> </h4>
@@ -37,7 +37,7 @@ $this->registerMetaTag([
 						--><?php
 /*						}
 					}*/
-				?>
+?>
 
 <?= SliderWid::widget() ?>
 <?= Notices::widget() ?>
@@ -87,36 +87,36 @@ $this->registerMetaTag([
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <div class="image-box">
-                    <img src="<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/gallery1.jpg">
-                    <h3>Nice library</h3>
-                </div>
+                <a href="https://uckkr.org/gallery.html">
+                    <div class="image-box">
+                        <img src="<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/gallery1.jpg">
+                        <h3>View gallery</h3>
+                    </div>
+                </a>
             </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="image-box">
-                    <img src="<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/gallery2.jpg">
-                    <h3>Nice library</h3>
-                </div>
+            <div class="col-md-6 col-sm-12">
+                <a href="https://uckkr.org/gallery.html">
+                    <div class="image-box">
+                        <img src="<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/gallery2.jpg">
+                        <h3>View gallery</h3>
+                    </div>
+                </a>
             </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="image-box">
-                    <img src="<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/gallery3.jpg">
-                    <h3>Nice library</h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-md-9 col-sm-12">
-                <div class="image-box">
-                    <img src="<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/gallery4.jpg">
-                    <h3>Nice library</h3>
-                </div>
+                <a href="https://uckkr.org/gallery.html">
+                    <div class="image-box">
+                        <img src="<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/gallery3.jpg">
+                        <h3>View gallery</h3>
+                    </div>
+                </a>
             </div>
             <div class="col-md-3 col-sm-6">
-                <div class="image-box">
-                    <img src="<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/gallery5.jpg">
-                    <h3>Nice library</h3>
-                </div>
+                <a href="https://uckkr.org/gallery.html">
+                    <div class="image-box">
+                        <img src="<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/gallery4.jpg">
+                        <h3>View gallery</h3>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
