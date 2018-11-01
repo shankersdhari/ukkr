@@ -7,12 +7,13 @@ use Yii;
 /**
  * ContactForm is the model behind the contact form.
  */
-class ContactForm extends Model
+class RequestWifi extends Model
 {
     public $name;
     public $phone;
     public $email;
-    public $subject;
+    public $roleno;
+    public $class;
     public $body;
 
     /**
@@ -23,7 +24,7 @@ class ContactForm extends Model
     public function rules()
     {
         return [
-            [['name', 'email','phone'], 'required'],
+            [['name', 'email', 'roleno','class','verifyCode','phone'], 'required'],
             ['email', 'email'],
         ];
     }
@@ -38,7 +39,8 @@ class ContactForm extends Model
         return [
             'name'=> Yii::t('app', 'Name'),
             'email' => Yii::t('app', 'Email'),
-            'subject' => Yii::t('app', 'Subject'),
+            'roleno' => Yii::t('app', 'Role NO.'),
+            'class' => Yii::t('app', 'Class'),
             'body' => Yii::t('app', 'Text'),
             'verifyCode' => Yii::t('app', 'Verification Code'),
         ];
@@ -51,16 +53,17 @@ class ContactForm extends Model
      * @param  string $email The target email address.
      * @return bool          Whether the email was sent.
      */
-    public function contact($email)
+    public function contactWifi($email)
     {
-		$adminEmail = Yii::$app->params['adminEmail'];
-		$message = $this->body;
-		$send =  Yii::$app->mailer->compose(['html' => '@common/mail/views/contact'], ['name'=>$this->name, 'email'=>$this->email, 'phone'=>$this->phone, 'message'=>$message])
-			->setTo($adminEmail)
-			->setFrom($this->email)
-			->setSubject('contact us')
-			->send();
-		return $send;
-		
+        $adminEmail = Yii::$app->params['adminEmail'];
+        $message = $this->body;
+
+        $send=  Yii::$app->mailer->compose(['html' => '@common/mail/views/contact'], ['name'=>$this->name, 'email'=>$this->email, 'phone'=>$this->phone, 'message'=>$message])
+            ->setTo($adminEmail)
+            ->setFrom($this->email)
+            ->setSubject('Requesting Wifi Password')
+            ->send();
+        return $send;
+
     }
 }

@@ -13,6 +13,7 @@ $i=1;
 </div>
 <div class="prospectus">
 	<div class="container">
+		<?= Alert::widget() ?>
 		<h3 style="color:#333;">Prospectus 2017 - 2018</h3>
 		<h4>IMPORTANT INFORMATION </h4>
 		<div class="note">

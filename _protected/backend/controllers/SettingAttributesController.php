@@ -254,23 +254,30 @@ class SettingAttributesController extends BackendController
         $model = new SettingAttributes();
 		$model->setting_id = $setting_id;
         if ($model->load(Yii::$app->request->post())){
-			$model->save();
-			if($model->input_type == 1 || $model->input_type == 2){
-				$text_model = new SettingTextValues();
-				$text_model->setting_id = $model->setting_id;
-				$text_model->setting_attribute_id = $model->id;
-				$text_model->value = "";
-				if(!$text_model->save()){
-					echo"<pre>";print_r($text_model->getErrors());die;
+			if($model->save()) {
+				if ($model->input_type == 1 || $model->input_type == 2) {
+					$text_model = new SettingTextValues();
+					$text_model->setting_id = $model->setting_id;
+					$text_model->setting_attribute_id = $model->id;
+					$text_model->value = "";
+					if (!$text_model->save()) {
+						echo "<pre>";
+						print_r($text_model->getErrors());
+						die;
+					}
+				} elseif ($model->input_type == 3) {
+					$textarea_model = new SettingTextareaValue();
+					$textarea_model->setting_id = $model->setting_id;
+					$textarea_model->setting_attribute_id = $model->id;
+					$textarea_model->value = "";
+					if (!$textarea_model->save()) {
+						echo "<pre>";
+						print_r($textarea_model->getErrors());
+						die;
+					}
 				}
-			}elseif($model->input_type == 3){
-				$textarea_model = new SettingTextareaValue();
-				$textarea_model->setting_id = $model->setting_id;
-				$textarea_model->setting_attribute_id = $model->id;
-				$textarea_model->value = "";
-				if(!$textarea_model->save()){
-					echo"<pre>";print_r($textarea_model->getErrors());die;
-				}
+			}else{
+				echo "<pre>";print_r($model->getErrors());die;
 			}
 			return $this->redirect(['viewattribute', 'setting_id' => $setting_id]);
         } else {

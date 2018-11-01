@@ -18,10 +18,10 @@ use yii\helpers\Url;
 						<li><a href="#"><i class="icon-twitter"></i></a></li>
 						<li><a href="#"><i class="icon-linkedin2"></i></a></li>
 					</ul>
-					<a href="students-wifi-password.html" class="btn btn-primary">WiFi Password Request</a>
-					<a class="btn" href="nirf.html">NIRF</a>
+					<a href="javascript:void(0);" title=""data-toggle="modal" data-target="#request-modal" class="btn btn-primary">WiFi Password Request</a>
+					<!--<a class="btn" href="#">NIRF</a>-->
 					<a class="btn" href="research-assistant.html">Vacancies</a>
-					<a class="btn" href="contact-us.html">Contact Us</a>
+					<a class="btn" href="<?= Url::to(['site/contact']) ?>">Contact Us</a>
 				</div>
 				<div class="search-box">
 					<div class="search">
@@ -67,8 +67,8 @@ use yii\helpers\Url;
 							</li>
 							<li><a href="<?= Url::to(['site/staff','department' => 'Student']) ?>">Student Corner</a></li>
 							<li><a href="<?= Url::to(['site/gallery']) ?>">Gallery</a></li>
-							<li><a href="#">Admission Lists</a></li>
-							<li><a href="#">Pride</a></li>
+							<li><a href="<?= Url::to(['site/admission-list']) ?>">Admission Lists</a></li>
+							<!--li><a href="#">Pride</a></li-->
 						</ul>
 					</div><!-- /.navbar-collapse -->
 				</nav>

@@ -11,5 +11,6 @@ use frontend\widgets\Speaker;
         <p><?= $model->meta_desc ?></p>
     </div>
 </div>
+<?= Alert::widget() ?>
 <?= $model->description ?>
 	

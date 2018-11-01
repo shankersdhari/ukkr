@@ -5,6 +5,7 @@
  * Date: 10/23/2018
  * Time: 1:26 AM
  */
+use frontend\widgets\Alert;
 ?>
 <div class="inner-header" style="background-image: url('<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/staff-header.jpg')">
     <div class="container">
@@ -14,6 +15,7 @@
 </div>
 <div class="staff">
     <div class="container">
+        <?= Alert::widget() ?>
         <?php if($department) { ?>
             <div class="row">
                 <div class="col-md-12">

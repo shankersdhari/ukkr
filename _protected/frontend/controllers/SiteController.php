@@ -4,6 +4,7 @@ use yii\helpers\Url;
 use common\models\User;
 use common\models\LoginForm;
 use common\models\Staff;
+use common\models\RequestWifi;
 use common\models\Pages;
 use common\models\Newsletter;
 use common\models\Testimonial;
@@ -94,7 +95,7 @@ class SiteController extends Controller
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+                //'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
     }
@@ -159,7 +160,6 @@ class SiteController extends Controller
     {
 
         $model = new ContactForm();
-		$this->layout = "simple";
         if ($model->load(Yii::$app->request->post()) && $model->validate()) 
         {
             if ($model->contact(Yii::$app->params['adminEmail'])) 
@@ -180,6 +180,31 @@ class SiteController extends Controller
         ]);
     }
 
+    /**
+     * Displays the contact static page and sends the contact email.
+     *
+     * @return string|\yii\web\Response
+     */
+    public function actionRequestWifi()
+    {
+        $model = new RequestWifi();
+        $post = Yii::$app->request->post();
+        if ($model->load(Yii::$app->request->post()) && $model->validate())
+        {
+
+            if ($model->contactWifi(Yii::$app->params['adminEmail']) && $model->save())
+            {
+                Yii::$app->session->setFlash('success',
+                    'Your request has been submitted successfully. We will send you password soon!');
+            }
+            else
+            {
+                Yii::$app->session->setFlash('error', 'There was an error sending email.');
+            }
+            return $this->redirect($post['prev_url']);
+        }
+        return $this->redirect('index');
+    }
 //------------------------------------------------------------------------------------------------//
 // LOG IN / LOG OUT / PASSWORD RESET
 //------------------------------------------------------------------------------------------------//
@@ -574,14 +599,17 @@ class SiteController extends Controller
 
     }
 	public function actionMembership(){
-		
+
 		$member =  Membership::find()->where(['status' => 1])->limit(4)->orderBy(['id' => SORT_ASC])->all();
 		return $this->render('membership', [
 			'members' => $member,
-		]);	
-		
-		
+		]);
+
+
 	}
+    public function actionAdmissionList(){
+        return $this->render('admission-list');
+    }
 	public function actionCheckout($id=0){
 		$rna = Yii::$app->params['rna'];
 		$model = $rna ? new SignupForm(['scenario' => 'rna']) : new SignupForm();

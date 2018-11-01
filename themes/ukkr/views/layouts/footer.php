@@ -2,6 +2,7 @@
 use frontend\widgets\FooterMenu;
 use yii\helpers\Url;
 use frontend\widgets\Contact;
+use frontend\widgets\WifiRequestForm;
 ?>
 
 <footer>
@@ -59,3 +60,20 @@ use frontend\widgets\Contact;
     </div>
 </footer>
 
+<div class="modal fade showModalButton" id="request-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">WiFi Password Request </h4>
+            </div>
+            <div class="modal-body" id="rating-content">
+                <?= WifiRequestForm::widget() ?>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

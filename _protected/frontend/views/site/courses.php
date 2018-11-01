@@ -5,6 +5,7 @@
  * Date: 10/23/2018
  * Time: 2:41 AM
  */
+use frontend\widgets\Alert;
 ?>
 <div class="inner-header" style="background-image: url('<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/staff-header.jpg')">
     <div class="container">
@@ -14,6 +15,7 @@
 </div>
 <div class="courses">
     <div class="container">
+        <?= Alert::widget() ?>
         <h3>Courses</h3>
         <ul>
             <li>Various streams are vaailable in Arts wing with honours courses as well.</li>

@@ -20,9 +20,6 @@
             [
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
-                    
-	                  				
-					
                     [
                         'label' => 'Pages Management',
                         'icon' => 'fa fa-product-hunt',
@@ -88,6 +85,11 @@
                         'label' => 'Documents Management',
                         'icon' => 'fa fa-picture-o',
                         'url' => ['/downloads'],
+                    ],
+                    [
+                        'label' => 'Wifi Password Requests',
+                        'icon' => 'fa fa-picture-o',
+                        'url' => ['/request-wifi'],
                     ],
 
                     /* [

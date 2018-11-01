@@ -19,6 +19,7 @@ $this->registerCssFile(Yii::$app->view->theme->baseUrl . '/css/magnific-popup.cs
 </div>
 <div class="gallery">
 	<div class="container">
+		<?= Alert::widget() ?>
 		<div class="row">
 			<div class="col-md-12">
 				<h3>Latest Photos</h3>
