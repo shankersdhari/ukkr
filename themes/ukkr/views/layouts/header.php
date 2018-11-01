@@ -19,9 +19,15 @@ if($action == 'page'){
 				<div class="top-nav">
 					<!--<a href="#" class="btn btn-primary">Login</a>-->
 					<ul>
-						<li><a href="#"><i class="icon-facebook"></i></a></li>
-						<li><a href="#"><i class="icon-twitter"></i></a></li>
-						<li><a href="#"><i class="icon-linkedin2"></i></a></li>
+						<?php if (Yii::$app->params['settings']['facebook'] != "" && Yii::$app->params['settings']['facebook'] != "#") { ?>
+							<li><a href="<?= Yii::$app->params['settings']['facebook'] ?>"><i class="icon-facebook"></i></a></li>
+						<?php } ?>
+						<?php if (Yii::$app->params['settings']['twitter'] != "" && Yii::$app->params['settings']['twitter'] != "#") { ?>
+							<li><a href="<?= Yii::$app->params['settings']['twitter'] ?>"><i class="icon-twitter"></i></a></li>
+						<?php } ?>
+						<?php if (Yii::$app->params['settings']['linked_in'] != "" && Yii::$app->params['settings']['linked_in'] != "#") { ?>
+							<li><a href="<?= Yii::$app->params['settings']['linked_in'] ?>"><i class="icon-linkedin2"></i></a></li>
+						<?php } ?>
 					</ul>
 					<a href="javascript:void(0);" title=""data-toggle="modal" data-target="#request-modal" class="btn btn-primary">WiFi Password Request</a>
 					<!--<a class="btn" href="#">NIRF</a>-->
@@ -36,8 +42,8 @@ if($action == 'page'){
 					</div>
 					<a class="btn search-toggle"><i class="icon-search"></i></a>
 					<div class="contact">
-						<span class="btn btn-primary">+91 181 8888 888</span>
-						<i class="icon-phone btn btn-primary"></i>
+						<span class="btn btn-primary"><?= Yii::$app->params['settings']['phone_number'] ?></span>
+						<a href="tel:<?= Yii::$app->params['settings']['phone_number'] ?>"><i class="icon-phone btn btn-primary"></i></a>
 					</div>
 				</div>
 				<nav class="navbar navbar-expand-md">
