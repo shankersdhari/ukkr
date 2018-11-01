@@ -4,7 +4,8 @@ use frontend\widgets\Search;
 use yii\helpers\Url;
 $action = Yii::$app->controller->action->id;
 if($action == 'page'){
-	$action = end(explode("/",Yii::$app->request->url));
+	$action_arry = (explode("/",\Yii::$app->request->url));
+	$action = $action_arry[count($action_arry) - 1];
 }
 ?>
 
@@ -56,7 +57,7 @@ if($action == 'page'){
 							<li <?php if($action == "courses") echo"class='active'"; ?>><a href="<?= Url::to(['site/courses']) ?>">Courses</a></li>
 							<li <?php if($action == "downloads") echo"class='active'"; ?>><a href="<?= Url::to(['site/downloads']) ?>">Prospectus</a></li>
 							<li <?php if($action == "staff" && isset($_GET['department']) && $_GET['department'] != "Student") echo"class='active'"; ?>>
-								<a href="javacript:void(0)">Departments</a>
+								<a href="javascript:void(0)">Departments</a>
 								<ul class="sub-menu">
 									<li>
 										<a href="<?= Url::to(['site/staff','department' => 'Arts']) ?>">Arts</a>
