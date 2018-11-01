@@ -20,7 +20,18 @@ AppAsset::register($this);
 	<link rel="shortcut icon" href="<?= Yii::$app->request->baseUrl; ?>/favicon.ico" type="image/x-icon" />
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>	
+    <?php $this->head() ?>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128587589-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-128587589-1');
+    </script>
+
 </head>
 <body>
     <?php $this->beginBody() ?>
