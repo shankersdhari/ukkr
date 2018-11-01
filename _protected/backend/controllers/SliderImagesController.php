@@ -246,6 +246,7 @@ class SliderImagesController extends BackendController
 		$mod = $this->findModel($id);
 		$slide_id = $mod->slider_id;
 		$this->findModel($id)->delete();
+		Yii::$app->getSession()->setFlash('success', Yii::t('app', 'slide  has been deleted successfully!'));
 		return $this->redirect(['viewslides', 'slider_id' =>$slide_id]);
         //return $this->redirect(['index']);
     }

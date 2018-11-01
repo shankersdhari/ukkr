@@ -544,7 +544,6 @@ class SiteController extends Controller
 
 		$page = Pages::find()->where(['slug' =>$slug ])->one();
 		$model1 = new ContactForm();
-
         if ($model1->load(Yii::$app->request->post()))
         {
 

@@ -45,7 +45,8 @@ $this->params['breadcrumbs'][] = $this->title;
 								'format' => 'raw',
 
 							],
-							
+							'name',
+							'content',
 							[
 								'attribute' => 'image_path',
 								'format' => 'html',
@@ -58,16 +59,25 @@ $this->params['breadcrumbs'][] = $this->title;
 
 							 ['class' => 'yii\grid\ActionColumn','header'=>'Actions',
 							'buttons' => [
-							'update' =>function ($url, $model, $key) {
-							$options = array_merge([
-							'title' => Yii::t('yii', 'Update Slide'),
-							'aria-label' => Yii::t('yii', 'Update Slide'),
-							'data-pjax' => '0',
-							], []);
-							return Html::a('<span class="glyphicon glyphicon-pencil"></span>', ['slider-images/update','id'=> $model->id , 'slider_id'=> $model->slider_id], $options);
-							},
+								'update' =>function ($url, $model, $key) {
+									$options = array_merge([
+									'title' => Yii::t('yii', 'Update Slide'),
+									'aria-label' => Yii::t('yii', 'Update Slide'),
+									'data-pjax' => '0',
+									], []);
+									return Html::a('<span class="glyphicon glyphicon-pencil"></span>', ['slider-images/update','id'=> $model->id , 'slider_id'=> $model->slider_id], $options);
+								},
+								'delete' => function ($url, $model, $key) {
+									return Html::a('', ['delete','id'=>$model->id],
+										['title'=>'Delete Slide',
+											'class'=>'glyphicon glyphicon-trash',
+											'data' => [
+												'confirm' => Yii::t('app', 'Are you sure wants to delete?'),
+												'method' => 'post']
+										]);
+								},
 							],
-							'template' => '{update}', 'contentOptions' => ['style' => 'width:160px;text-align:center'],
+							'template' => '{update}{delete}', 'contentOptions' => ['style' => 'width:160px;text-align:center'],
 							 'contentOptions' => ['style' => 'text-align:center;vertical-align: middle;letter-spacing:10px;'],
 							 ],
 						],

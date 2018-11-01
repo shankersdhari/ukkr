@@ -66,8 +66,8 @@ class NoticedController extends BackendController
         $model = new Noticed();
 
         if ($model->load(Yii::$app->request->post()) ) {
-            $model->start_date = strtotime($model->start_date);
-            $model->end_date = strtotime($model->end_date);
+            $model->start_date = strtotime($model->start_date." 00:00:00");
+            $model->end_date = strtotime($model->end_date." 23:59:59");
             $model->save();
             return $this->redirect(['index']);
         } else {

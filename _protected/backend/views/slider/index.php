@@ -50,15 +50,15 @@ $this->params['breadcrumbs'][] = $this->title;
 				'filter'=>array("1"=>"Active","0"=>"Inactive"),
 			],
              ['class' => 'yii\grid\ActionColumn','header'=>'Actions',
-			'buttons' => [
-			'viewslides' =>function ($url, $model, $key) {
-			$options = array_merge([
-			'title' => Yii::t('yii', 'View Slides'),
-			'aria-label' => Yii::t('yii', 'View Slides'),
-			'data-pjax' => '0',
-			], []);
-			return Html::a('<span class="glyphicon glyphicon-folder-open"></span>', ['slider-images/viewslides','slider_id'=>$model->id], $options);
-			},
+				'buttons' => [
+				'viewslides' =>function ($url, $model, $key) {
+					$options = array_merge([
+					'title' => Yii::t('yii', 'View Slides'),
+					'aria-label' => Yii::t('yii', 'View Slides'),
+					'data-pjax' => '0',
+					], []);
+					return Html::a('<span class="glyphicon glyphicon-folder-open"></span>', ['slider-images/viewslides','slider_id'=>$model->id], $options);
+				},
 			],
 			'template' => '{viewslides} {delete}{update}', 'contentOptions' => ['style' => 'width:160px;letter-spacing:10px;text-align:center'],
 			],

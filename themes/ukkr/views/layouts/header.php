@@ -2,6 +2,10 @@
 use frontend\widgets\HomeMenuMain;
 use frontend\widgets\Search;
 use yii\helpers\Url;
+$action = Yii::$app->controller->action->id;
+if($action == 'page'){
+	$action = end(explode("/",Yii::$app->request->url));
+}
 ?>
 
 
@@ -46,12 +50,12 @@ use yii\helpers\Url;
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
-							<li><a href="<?= Yii::$app->homeUrl ?>">Home</a></li>
-							<li><a href="<?= Url::to(['site/page','slug' =>"about-us"]) ?>">About</a></li>
-							<li><a href="<?= Url::to(['site/staff']) ?>">Staff</a></li>
-							<li><a href="<?= Url::to(['site/courses']) ?>">Courses</a></li>
-							<li><a href="<?= Url::to(['site/downloads']) ?>">Prospectus</a></li>
-							<li>
+							<li <?php if($action == "index") echo"class='active'"; ?> ><a href="<?= Yii::$app->homeUrl ?>">Home</a></li>
+							<li <?php if($action == "about-us.html") echo"class='active'"; ?> ><a href="<?= Url::to(['site/page','slug' =>"about-us"]) ?>">About</a></li>
+							<li <?php if($action == "staff" && !isset($_GET['department'])) echo"class='active'"; ?>><a href="<?= Url::to(['site/staff']) ?>">Staff</a></li>
+							<li <?php if($action == "courses") echo"class='active'"; ?>><a href="<?= Url::to(['site/courses']) ?>">Courses</a></li>
+							<li <?php if($action == "downloads") echo"class='active'"; ?>><a href="<?= Url::to(['site/downloads']) ?>">Prospectus</a></li>
+							<li <?php if($action == "staff" && isset($_GET['department']) && $_GET['department'] != "Student") echo"class='active'"; ?>>
 								<a href="javacript:void(0)">Departments</a>
 								<ul class="sub-menu">
 									<li>
@@ -65,9 +69,9 @@ use yii\helpers\Url;
 									</li>
 								</ul>
 							</li>
-							<li><a href="<?= Url::to(['site/staff','department' => 'Student']) ?>">Student Corner</a></li>
-							<li><a href="<?= Url::to(['site/gallery']) ?>">Gallery</a></li>
-							<li><a href="<?= Url::to(['site/admission-list']) ?>">Admission Lists</a></li>
+							<li <?php if($action == "staff" && isset($_GET['department']) && $_GET['department'] == "Student") echo"class='active'"; ?>><a href="<?= Url::to(['site/staff','department' => 'Student']) ?>">Student Corner</a></li>
+							<li <?php if($action == "gallery") echo"class='active'"; ?>><a href="<?= Url::to(['site/gallery']) ?>">Gallery</a></li>
+							<li <?php if($action == "admission-list") echo"class='active'"; ?>><a href="<?= Url::to(['site/admission-list']) ?>">Admission Lists</a></li>
 							<!--li><a href="#">Pride</a></li-->
 						</ul>
 					</div><!-- /.navbar-collapse -->
