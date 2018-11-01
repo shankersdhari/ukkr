@@ -3,6 +3,7 @@ use frontend\widgets\FooterMenu;
 use yii\helpers\Url;
 use frontend\widgets\Contact;
 use frontend\widgets\WifiRequestForm;
+
 ?>
 
 <footer>
@@ -29,7 +30,8 @@ use frontend\widgets\WifiRequestForm;
                     <li><a href="staff.html">Student Hostel issues - Dr Suresh Darolia</a></li>
                     <li><a href="staff.html">Student Development NCC - Lt Dr Sukarmwati, Dr Virender Pal</a></li>
                     <li><a href="staff.html">UGC Services - Dr Sanjeev Gupta</a></li>
-                    <li><a href="staff.html">Student Life NSS - Dr N.bhatti, Dr Santosh Dubey, Dr vineet and Ms Manju</a></li>
+                    <li><a href="staff.html">Student Life NSS - Dr N.bhatti, Dr Santosh Dubey, Dr vineet and Ms
+                            Manju</a></li>
                 </ul>
             </div>
             <div class="col-md-4 col-sm-6  col-xs-12">
@@ -47,13 +49,20 @@ use frontend\widgets\WifiRequestForm;
         </div>
         <div class="row">
             <div class="col-sm-8">
-                <p class="copy">Copyright &copy; 2014 - All Rights Reserved - <a href="#">uckkr.org</a> | Designed by <a href="https://gnetwebs.com">GnetWebs</a></p>
+                <p class="copy">Copyright &copy; 2014 - All Rights Reserved - <a href="#">uckkr.org</a> | Designed by <a
+                        href="https://gnetwebs.com">GnetWebs</a></p>
             </div>
             <div class="col-sm-4">
                 <ul class="social">
-                    <li><a href="#"><i class="icon-facebook"></i></a></li>
-                    <li><a href="#"><i class="icon-twitter"></i></a></li>
-                    <li><a href="#"><i class="icon-linkedin2"></i></a></li>
+                    <?php if (Yii::$app->params['settings']['facebook'] != "" && Yii::$app->params['settings']['facebook'] != "#") { ?>
+                        <li><a href="<?= Yii::$app->params['settings']['facebook'] ?>"><i class="icon-facebook"></i></a></li>
+                    <?php } ?>
+                    <?php if (Yii::$app->params['settings']['twitter'] != "" && Yii::$app->params['settings']['twitter'] != "#") { ?>
+                        <li><a href="<?= Yii::$app->params['settings']['twitter'] ?>"><i class="icon-twitter"></i></a></li>
+                    <?php } ?>
+                    <?php if (Yii::$app->params['settings']['linked_in'] != "" && Yii::$app->params['settings']['linked_in'] != "#") { ?>
+                        <li><a href="<?= Yii::$app->params['settings']['linked_in'] ?>"><i class="icon-linkedin2"></i></a></li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>
