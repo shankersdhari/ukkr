@@ -223,7 +223,8 @@ p {
               text-transform: uppercase;
               &:extend(.transition);
             }
-            &:hover a{
+            &:hover a,
+            &.active a{
                 background: #06A7C6;
                 color:#fff;
             }
@@ -719,7 +720,7 @@ footer{
   }
 }
 .inner-header{
-  background: #dfdfdf none no-repeat scroll center center / cover ;
+  background: #dfdfdf none no-repeat scroll center -24px / cover;
   margin-top: 125px;
   padding: 60px 0;
   text-align: center;
