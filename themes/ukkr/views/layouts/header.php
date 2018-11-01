@@ -20,13 +20,13 @@ if($action == 'page'){
 					<!--<a href="#" class="btn btn-primary">Login</a>-->
 					<ul>
 						<?php if (Yii::$app->params['settings']['facebook'] != "" && Yii::$app->params['settings']['facebook'] != "#") { ?>
-							<li><a href="<?= Yii::$app->params['settings']['facebook'] ?>"><i class="icon-facebook"></i></a></li>
+							<li><a target="_blank" href="<?= Yii::$app->params['settings']['facebook'] ?>"><i class="icon-facebook"></i></a></li>
 						<?php } ?>
 						<?php if (Yii::$app->params['settings']['twitter'] != "" && Yii::$app->params['settings']['twitter'] != "#") { ?>
-							<li><a href="<?= Yii::$app->params['settings']['twitter'] ?>"><i class="icon-twitter"></i></a></li>
+							<li><a target="_blank" href="<?= Yii::$app->params['settings']['twitter'] ?>"><i class="icon-twitter"></i></a></li>
 						<?php } ?>
 						<?php if (Yii::$app->params['settings']['linked_in'] != "" && Yii::$app->params['settings']['linked_in'] != "#") { ?>
-							<li><a href="<?= Yii::$app->params['settings']['linked_in'] ?>"><i class="icon-linkedin2"></i></a></li>
+							<li><a target="_blank" href="<?= Yii::$app->params['settings']['linked_in'] ?>"><i class="icon-linkedin2"></i></a></li>
 						<?php } ?>
 					</ul>
 					<a href="javascript:void(0);" title=""data-toggle="modal" data-target="#request-modal" class="btn btn-primary">WiFi Password Request</a>
