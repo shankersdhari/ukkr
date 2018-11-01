@@ -8,7 +8,6 @@ $i=1;
 <div class="inner-header" style="background-image: url('<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/staff-header.jpg')">
 	<div class="container">
 		<h2>Prospectus</h2>
-		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 	</div>
 </div>
 <div class="prospectus">

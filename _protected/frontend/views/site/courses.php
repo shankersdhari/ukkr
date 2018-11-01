@@ -10,7 +10,6 @@ use frontend\widgets\Alert;
 <div class="inner-header" style="background-image: url('<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/staff-header.jpg')">
     <div class="container">
         <h2>Courses</h2>
-        <p>We have around 32 staff members who are responsible for keeping the University</p>
     </div>
 </div>
 <div class="courses">
