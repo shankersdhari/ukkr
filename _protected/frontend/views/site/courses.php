@@ -24,29 +24,31 @@ use frontend\widgets\Alert;
         </ul>
         <?php if($courses_category) {
             foreach ($courses_category as $category) { ?>
-                <table class="table table-bordered">
-                    <caption><?= $category->name ?></caption>
-                    <thead>
-                    <tr>
-                        <th>COURSE NAME</th>
-                        <th>QUAL</th>
-                        <th>COMBINATIONS</th>
-                        <th>CONTACT PERSON</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php if($category->courses) {
-                        foreach ($category->courses as $courses) { ?>
-                            <tr>
-                                <td><?= $courses->name ?></td>
-                                <td><?= $courses->qualification ?></td>
-                                <td><?= $courses->combination ?></td>
-                                <td><?= $courses->contact_person ?></td>
-                            </tr>
-                        <?php }
-                    }?>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <caption><?= $category->name ?></caption>
+                        <thead>
+                        <tr>
+                            <th>COURSE NAME</th>
+                            <th>QUAL</th>
+                            <th>COMBINATIONS</th>
+                            <th>CONTACT PERSON</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php if($category->courses) {
+                            foreach ($category->courses as $courses) { ?>
+                                <tr>
+                                    <td><?= $courses->name ?></td>
+                                    <td><?= $courses->qualification ?></td>
+                                    <td><?= $courses->combination ?></td>
+                                    <td><?= $courses->contact_person ?></td>
+                                </tr>
+                            <?php }
+                        }?>
+                        </tbody>
+                    </table>
+                </div>
             <?php }
         }?>
     </div>

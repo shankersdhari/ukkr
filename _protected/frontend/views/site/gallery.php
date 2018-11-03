@@ -41,7 +41,7 @@ $this->registerCssFile(Yii::$app->view->theme->baseUrl . '/css/magnific-popup.cs
 		<div class="row popup-gallery">
 			<?php if($images) {
 				foreach ($images as $image) { ?>
-					<div class="col-md-3">
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 						<div class="grid-item">
 							<a href="<?= Yii::$app->params['baseurl'] ?>/uploads/gallery/main/<?= $image->image ?>" title="<?= $image->title ?>">
 								<img src="<?= Yii::$app->params['baseurl'] ?>/uploads/gallery/medium/<?= $image->image ?>" alt="<?= $image->title ?>">

@@ -10,7 +10,6 @@ $this->title = "Contact Us";
 <div class="inner-header" style="background-image: url('images/staff-header.jpg')">
 	<div class="container">
 		<h2>Contact us</h2>
-		<p><?= Yii::$app->params['settings']['contact_title'] ?></p>
 	</div>
 </div>
 <div class="contact-us">
@@ -18,9 +17,9 @@ $this->title = "Contact Us";
 		<?= Alert::widget() ?>
 		<div class="row">
 			<div class="col-md-12">
-				<h2>Have a university or an idea you'd like to collaborate with Hubs? Please get in touch!</h2>
+				<h2><?= Yii::$app->params['settings']['contact_title'] ?></h2>
 			</div>
-			<div class="col-md-3">
+			<div class="col-lg-3 col-md-4 col-sm-6">
 				<div class="info-item">
 					<span>EMAIL:</span>
 					<p><?= Yii::$app->params['settings']['email'] ?></p>
@@ -30,7 +29,7 @@ $this->title = "Contact Us";
 					<p><?= Yii::$app->params['settings']['phone_number'] ?></p>
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-lg-3 col-md-4 col-sm-6">
 				<div class="info-item">
 					<span>Fax:</span>
 					<p><?= Yii::$app->params['settings']['phone_number'] ?></p>
@@ -46,18 +45,18 @@ $this->title = "Contact Us";
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-lg-6 col-md-4 col-xs-12">
 				<div class="contact-form">
 					<?php $form = ActiveForm::begin(['id' => 'contact-form','options' => ['class' => 'form-user']]); ?>
 						<div class="row">
-							<div class="col-md-6">
-									<?= $form->field($model, 'name')->textInput(['placeholder' => 'Name','class' => 'form-control'])->label(false) ?>
-									<?= $form->field($model, 'subject')->hiddenInput(['value' => 'Contact Us','class' => 'form-control'])->label(false) ?>
+							<div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
+								<?= $form->field($model, 'name')->textInput(['placeholder' => 'Name','class' => 'form-control'])->label(false) ?>
+								<?= $form->field($model, 'subject')->hiddenInput(['value' => 'Contact Us','class' => 'form-control'])->label(false) ?>
 							</div>
-							<div class="col-md-6">
+							<div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
 								<?= $form->field($model, 'phone')->textInput(['placeholder' => 'Phone No.','class' => 'form-control'])->label(false) ?>
 							</div>
-							<div class="col-md-12">
+							<div class="col-xs-12">
 								<?= $form->field($model, 'email')->textInput(['placeholder' => 'Email','class' => 'form-control'])->label(false) ?>
 								<?= $form->field($model, 'body')->textArea(['placeholder' => 'Message','class' => 'form-control'])->label(false) ?>
 							</div>

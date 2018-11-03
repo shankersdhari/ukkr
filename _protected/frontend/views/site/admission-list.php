@@ -21,48 +21,50 @@
         <p>Attendance will be marked from <span cLass="cl-red"><b>9 to 11 am</b></span></p>
         <br>
         <h4>Tentative Vacant Seats for Counselling on 27th July 2017</h4>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Class</th>
-                <th>Seats Vacant</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>B Com</td>
-                <td>03</td>
-            </tr>
-            <tr>
-                <td>B.A</td>
-                <td>04</td>
-            </tr>
-            <tr>
-                <td>B C A</td>
-                <td>02</td>
-            </tr>
-            <tr>
-                <td>B.Sc Home Sc</td>
-                <td>03</td>
-            </tr>
-            <tr>
-                <td>B.Sc medical</td>
-                <td>05</td>
-            </tr>
-            <tr>
-                <td>M.Sc Bio tech</td>
-                <td>01</td>
-            </tr>
-            <tr>
-                <td>B.Sc Non Medical</td>
-                <td>18</td>
-            </tr>
-            <tr>
-                <td>M.Sc Bio tech</td>
-                <td>01</td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Seats Vacant</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>B Com</td>
+                    <td>03</td>
+                </tr>
+                <tr>
+                    <td>B.A</td>
+                    <td>04</td>
+                </tr>
+                <tr>
+                    <td>B C A</td>
+                    <td>02</td>
+                </tr>
+                <tr>
+                    <td>B.Sc Home Sc</td>
+                    <td>03</td>
+                </tr>
+                <tr>
+                    <td>B.Sc medical</td>
+                    <td>05</td>
+                </tr>
+                <tr>
+                    <td>M.Sc Bio tech</td>
+                    <td>01</td>
+                </tr>
+                <tr>
+                    <td>B.Sc Non Medical</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>M.Sc Bio tech</td>
+                    <td>01</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
         <br>
         <h4>LIST FOR COUNSELLING</h4>
         <ul>

@@ -57,7 +57,7 @@ use frontend\widgets\Alert;
                             }else{
                                 $image = Yii::$app->params['baseurl'] ."/themes/ukkr/images/staff/img.jpg";
                             }?>
-                            <div class="col-lg-4 col-md-6">
+                            <div class="col-lg-4 col-sm-6">
                                 <div class="item">
                                     <div class="image-box">
                                         <img src="<?=  $image ?>" alt="">
