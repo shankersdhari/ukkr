@@ -37,7 +37,7 @@ use frontend\widgets\WifiRequestForm;
             <div class="col-md-4 col-sm-6  col-xs-12">
                 <h3>Library and others</h3>
                 <ul>
-                    <li><a href="staff.html">Body Hostel - Dr Suresh</a></li>
+                    <li><a href="staff.html">Boys Hostel - Dr Suresh</a></li>
                     <li><a href="staff.html">Girls Hostel - Dr Kusum, Dr Nirupma, Ms Manju</a></li>
                     <li><a href="staff.html">Asstt. Registrar - Mr Karam Singh</a></li>
                     <li><a href="staff.html">Salary Section - Mr Sant Kumar</a></li>

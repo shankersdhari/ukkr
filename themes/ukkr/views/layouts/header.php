@@ -78,7 +78,8 @@ if($action == 'page'){
 							</li>
 							<li <?php if($action == "staff" && isset($_GET['department']) && $_GET['department'] == "Student") echo"class='active'"; ?>><a href="<?= Url::to(['site/staff','department' => 'Student']) ?>">Student Corner</a></li>
 							<li <?php if($action == "gallery") echo"class='active'"; ?>><a href="<?= Url::to(['site/gallery']) ?>">Gallery</a></li>
-							<li <?php if($action == "admission-list") echo"class='active'"; ?>><a href="<?= Url::to(['site/admission-list']) ?>">Admission Lists</a></li>
+							<!--<li <?php /*if($action == "admission-list") echo"class='active'"; */?>><a href="<?/*= Url::to(['site/admission-list']) */?>">Admission Lists</a></li>-->
+							<li ><a target="https://www.onlinesbi.com/prelogin/icollecthome.htm?corpID=900385" href="https://www.onlinesbi.com/prelogin/icollecthome.htm?corpID=900385">FEES</a></li>
 							<!--li><a href="#">Pride</a></li-->
 						</ul>
 					</div><!-- /.navbar-collapse -->

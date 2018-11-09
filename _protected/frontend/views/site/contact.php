@@ -22,7 +22,8 @@ $this->title = "Contact Us";
 			<div class="col-lg-3 col-md-4 col-sm-6">
 				<div class="info-item">
 					<span>EMAIL:</span>
-					<p><?= Yii::$app->params['settings']['email'] ?></p>
+					<p><a href="mailto:<?= Yii::$app->params['settings']['email'] ?>"><?= Yii::$app->params['settings']['email'] ?></a></p>
+					<p><a href="mailto:akush@kuk.ac.in">akush@kuk.ac.in</a></p>
 				</div>
 				<div class="info-item">
 					<span>Tel:</span>
