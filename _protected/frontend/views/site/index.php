@@ -27,18 +27,6 @@ $this->registerMetaTag([
 
 ?>
 
-<?php
-/*if($gallery){
-    foreach($gallery as $image){ */?><!--
-						<div class="item">
-							<img src="<?/*= Yii::$app->params['baseurl'] */?>/uploads/gallery/main/<?/*= $image->image */?>">
-							<h4><?/*= $image->title */?> </h4>
-						</div>
-						--><?php
-/*						}
-					}*/
-?>
-
 <?= SliderWid::widget() ?>
 <?= Notices::widget() ?>
 <div class="news-section">
@@ -71,7 +59,7 @@ $this->registerMetaTag([
                 <img src="<?=  Yii::$app->params['baseurl'] ?>/themes/ukkr/images/about.jpg">
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12 pull-left">
-                <h3>Indian students at kurukshetra university</h3>
+                <h3>Indian students at University college</h3>
                 <p><?= nl2br(Yii::$app->params['settings']['header_content']) ?></p>
                 <a href="<?= Url::to(['site/page','slug' =>"about-us"]) ?>">Read more</a>
             </div>
