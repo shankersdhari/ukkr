@@ -11,13 +11,11 @@ $this->context->layout = 'simple';
 ?>
 <div class="container">
 	<div class="error-page">
-			<div class="error-text">
-			<h4><span>Error 404</span> Whoops!</h4>
-			<p>The page you need cannot be found</p>
-			<p>Yoh have requested a page or file which does not exist
-			See below for what you can do.</p>
+		<div class="error-img"><img src="<?= Yii::$app->params['baseurl'] ?>/images/error-img.jpg" alt="error-img" title="error-img"></div>
+		<div class="error-text">
+			<h4>Class is over ! Page is not found</h4>
+			<a href="<?= Yii::$app->params['baseurl'] ?>">Back to home</a>
 		</div>
-			<div class="error-img"><img src="<?= Yii::$app->params['baseurl'] ?>/images/error-img.png" alt="error-img" title="error-img"></div>
 	</div>
 </div>
 

@@ -36,9 +36,7 @@ AppAsset::register($this);
 </head>
 <body class="page-contact">
     <?php $this->beginBody() ?>
-	<?= $this->render('header.php')?>
         <?= $content ?>
-	<?= $this->render('footer.php')?>
     <?php $this->endBody() ?>
 </body>
 </html>
