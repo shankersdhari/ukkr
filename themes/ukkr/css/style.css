@@ -1123,7 +1123,6 @@ footer .copy a:hover {
   font-size: 22px;
   font-weight: 500;
   margin-bottom: 22px;
-  text-transform: capitalize;
 }
 .error-page .error-text a {
   background: #00a5c3 none repeat scroll 0 0;
